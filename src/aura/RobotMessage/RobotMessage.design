@@ -1,0 +1,4 @@
+<design:component>
+    <design:attribute name="size" label="Font size of the message" description="Valid value px,em" />
+    <design:attribute name="defaultMessage" label="Initial Message" description="Provide the initial message to be shown" />
+</design:component>

@@ -1,0 +1,30 @@
+<!--
+ /*
+ * Copyright (c) 2018, salesforce.com, inc.
+ * All rights reserved.
+ * SPDX-License-Identifier: BSD-3-Clause
+ * For full license text, see LICENSE.txt file in the repo root or https://opensource.org/licenses/BSD-3-Clause
+ */
+ -->
+<aura:component implements="flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes" access="global" controller="RobotCompController" >
+    <!-- Imports -->
+    <!-- attributes -->
+    <aura:attribute name="data" type="Object"/>
+    <aura:attribute name="columns" type="List"/>
+    <aura:attribute name="objectName" type="String" default="Opportunity"/>
+	<aura:attribute name="contentCss" type="String" default="FadeInEffect"/>
+    <aura:attribute name="nRecords" type="Integer" default="10"/>
+
+    <!-- handlers-->
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+	<aura:handler event="c:ChatbotEvent" action="{!c.handleMessage}"/>
+
+    <!-- the container element determine the height of the datatable -->
+    <div style="border:1px solid #d4d4d4;" class="{!v.contentCss}">
+        <lightning:datatable
+                keyField="id"
+                data="{! v.data }"
+                columns="{! v.columns }"
+                hideCheckboxColumn="true"/>
+    </div>
+</aura:component>

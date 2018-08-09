@@ -1,0 +1,17 @@
+<!--
+ /*
+ * Copyright (c) 2018, salesforce.com, inc.
+ * All rights reserved.
+ * SPDX-License-Identifier: BSD-3-Clause
+ * For full license text, see LICENSE.txt file in the repo root or https://opensource.org/licenses/BSD-3-Clause
+ */
+ -->
+<aura:component implements="flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes" access="global" controller="SessionController">
+	<aura:registerEvent name="onMessage" type="c:ChatbotEvent"/>
+	<aura:attribute name="subscription" type="Object"/>
+	<aura:attribute name="sessionKey" type="String"/>
+	<aura:handler event="c:ChatbotEvent" action="{!c.handleMessage}"/>
+	<aura:handler name="destroy" value="{!this}" action="{!c.handleDestroy}"/>
+	<ltng:require scripts="{!$Resource.cometd}" afterScriptsLoaded="{!c.doInit}" />    
+	<div>{!v.body}</div>
+</aura:component>

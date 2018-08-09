@@ -1,0 +1,17 @@
+<!--
+ /*
+ * Copyright (c) 2018, salesforce.com, inc.
+ * All rights reserved.
+ * SPDX-License-Identifier: BSD-3-Clause
+ * For full license text, see LICENSE.txt file in the repo root or https://opensource.org/licenses/BSD-3-Clause
+ */
+ -->
+<aura:component >
+	<aura:handler event="c:ChatbotEvent" action="{!c.handleMessage}"/>
+	<aura:attribute name="Tag" type="String" default="p"/>
+	<aura:attribute name="messageFromEvent" type="String"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/> 
+    
+    <img src="{!v.messageFromEvent}"></img>
+    {!v.messageFromEvent}
+</aura:component>

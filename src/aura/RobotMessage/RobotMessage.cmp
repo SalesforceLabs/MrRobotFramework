@@ -1,0 +1,24 @@
+<!--
+ /*
+* Copyright (c) 2018, salesforce.com, inc.
+* All rights reserved.
+* SPDX-License-Identifier: BSD-3-Clause
+* For full license text, see LICENSE.txt file in the repo root or https://opensource.org/licenses/BSD-3-Clause
+*/
+-->
+<aura:component implements="flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes" access="global" controller="RobotCompController">
+	<aura:handler event="c:ChatbotEvent" action="{!c.handleMessage}"/>
+	<aura:attribute name="size" type="String" default="2em"/>
+	<aura:attribute name="defaultMessage" type="String" default="Let's win those opportunities!"/>	
+	<aura:attribute name="messageFromEvent" type="String"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/> 
+    <aura:attribute name="contentCss" type="String" default=" cRobotMessage FadeInEffect"/>
+
+    <div style="text-align:center; padding-top:10px;padding-bottom:5px;background-color: #dce4f5;border-bottom: solid 1px #8390ad;">
+        <p><img src="{!$Resource.RobotLogo }" width="150"/> </p>
+
+        <div style="{!v.size}" class="{!v.contentCss}" >{!v.messageFromEvent} </div>
+
+    </div>
+	
+</aura:component>
